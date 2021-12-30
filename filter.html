@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>filter() Function Logic without builtin functions</h2>
+    <p>The filter() method creates a new array filled with elements that pass a test provided by a function.    </p>
+    <p>Original Ages:</p>
+    <p id="original-ages"></p>
+
+    <p>Filtering ages greater than 30 :</p>
+    <p>New Ages:</p>
+    <p id="filtered-ages"></p>
+
+    <script>
+        let ages = [32, 33, 16, 40];
+
+        document.getElementById("original-ages").innerHTML = ages;
+        function customFilter(ages, filterFunc) {
+            const resArr = [];
+            for (let i = 0; i < ages.length; i++) {
+                let result = filterFunc(ages[i], i, ages);
+                    
+                if (result) {
+                    resArr.push(ages[i]);
+                }
+            }
+            return resArr;
+        }
+          
+        let newArr = customFilter(ages, age => age > 30);
+        document.getElementById("filtered-ages").innerHTML = newArr;
+    </script>
+
+</body>
+
+</html>

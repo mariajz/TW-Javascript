@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>reduce() Function Logic without builtin functions</h2>
+    <p>The reduce() method returns a single value: the function's accumulated result.</p>
+    <p>Original Values:</p>
+    <p id="original-values"></p>
+
+    <p>Reducing to single value(array sum):</p>
+    <p>Reduced Value:</p>
+    <p id="reduced-value"></p>
+
+    <script>
+        let values = [1, 2, 3, 4];
+
+        document.getElementById("original-values").innerHTML = values;
+        function customReduce(values, reduceFunc) {
+            let result=0;
+            for (let i = 0; i < values.length; i++) {
+               result = reduceFunc(result,values[i], i, values);
+            }
+            return result;
+        }
+        function customFunction(total, num) {
+            return total + num;
+        }
+        let result = customReduce(values,customFunction);
+        document.getElementById("reduced-value").innerHTML = result;
+    </script>
+
+</body>
+
+</html>

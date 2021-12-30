@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>map() Function Logic without builtin functions</h2>
+    <p>map() calls a function once for each element in an array.</p>
+    <p>Original Array:</p>
+    <p id="original-array"></p>
+
+    <p>Multiplying every element in the array with 10:</p>
+    <p>New Array:</p>
+    <p id="new-array"></p>
+
+    <script>
+        let arr = [65, 44, 12, 4];
+        document.getElementById("original-array").innerHTML = arr;
+        function customMap(arr, mapFunc) {
+            const mapArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                const result = mapFunc(arr[i], i, arr);
+                mapArr.push(result);
+            }
+            return mapArr;
+        }
+        let newArr = customMap(arr,num => num * 10);
+        document.getElementById("new-array").innerHTML = newArr;
+        console.log(newArr);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>forEach() Function Logic without builtin functions</h2>
+    <p>forEach() calls a function for each element in an array:</p>
+    <p>Original Array:</p>
+    <p id="original-array"></p>
+
+    <p>Adding Index number for each array element:</p>
+    <p>New Array:</p>
+    <p id="new-array"></p>
+
+    <script>
+        const arr = ["apple", "orange", "cherry"];
+        document.getElementById("original-array").innerHTML = arr;
+        function customForEach(arr, forEachFunc) {
+            const resArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                const result = forEachFunc(arr[i], i, arr);
+                resArr.push(result);
+                console.log(resArr);
+            }
+            console.log(resArr);
+            return resArr;
+        }
+        function customFunction(item, index) {
+            let text = index + ": " + item;
+            return text;
+        }
+        let newArr = customForEach(arr, customFunction);
+        document.getElementById("new-array").innerHTML = newArr;
+        console.log(newArr);
+    </script>
+
+</body>
+
+</html>
